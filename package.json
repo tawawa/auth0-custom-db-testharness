@@ -1,0 +1,31 @@
+{
+  "name": "auth0-custom-db-testharness",
+  "version": "1.0.0",
+  "description": "deploy, execute, and test the output of Auth0 Custom DB scripts using a webtask sandbox environment.",
+  "author": "Richard Seldon<arcseldon@gmail.com>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tawawa/auth0-custom-db-testharness.git"
+  },
+  "keywords": [
+    "auth0",
+    "rules",
+    "custom db",
+    "sandbox",
+    "webtask",
+    "tenant",
+    "testharness"
+  ],
+  "scripts": {
+    "test": "mocha test.sample.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "auth0-rules-testharness": "^1.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
