@@ -1,15 +1,17 @@
 # What is it?
 
-The *auth0-custom-db-testharness* library provides an easy way to deploy, execute, and test the output of Auth0 Custom DB Scripts using a real
-webtask sandbox environment. It is very simple to use, and requires under 15 minutes to get started testing your Auth0 Custom DB scripts! 
+The *auth0-custom-db-testharness* library provides an easy way to deploy, execute, and test the output of Auth0 Custom DB Scripts using a real webtask sandbox environment. It is very simple to use, and requires under 15 minutes to get started testing your Auth0 Custom DB scripts! 
 
 For see here for further documentation on [Auth0 Custom Databases](https://auth0.com/docs/connections/database/mysql)
 
-Sometimes you just want to execute your Custom DB Scripts against the same sandbox environment it will be deployed to at Runtime in
-Auth0, and test everything works as expected. You may also wish to write your Custom DB Scripts using a test driven development approach, and gain real feedback as you code - this is where this npm module can help. It actually executes your Custom DB script, by first wrapping it internally, and passing the wrapped function a  `user` object and `callback` function declare in your tests. Then the library spins up a webtask, executes your Custom DB Script passing the results to the provided callback, and finally tears the environment down again.
+Sometimes you just want to execute your Custom DB Scripts against the same sandbox environment it will be deployed to at Runtime in Auth0, and test everything works as expected. You may also wish to write your Custom DB Scripts using a test driven development approach, and gain real feedback as you code - this is where this npm module can help. It actually executes your Custom DB script, by first wrapping it internally, and passing the wrapped function a  `user` object and `callback` function declare in your tests. Then the library spins up a webtask, executes your Custom DB Script passing the results to the provided callback, and finally tears the environment down again.
+
+### Notes
 
 It is worth noting that under the covers, the script this npm module generates for deployment to a webtask environment
 depends upon  [auth0-rules-testharness](https://github.com/tawawa/auth0-rules-testharness), which in turn depends upon [auth0-authz-rules-api](https://github.com/auth0/auth0-authz-rules-api). If you wish to study and understand the generated script code that wraps the Rule being tested, then these are the repos to checkout ;)
+
+For a similar NPM module to deploy, execute, and test the output of [Auth0 Rules](https://auth0.com/docs/rules) Scripts using a real webtask sandbox environment, please see [auth0-rules-testharness](https://www.npmjs.com/package/auth0-rules-testharness).
 
 ## Prerequisites 
 
@@ -296,11 +298,11 @@ var params = {
 * `url`: sandbox container url - 'https://sandbox.it.auth0.com' for public cloud
 * `token`: the webtask token. You can get your webtask token from [your auth0 dashboard](https://manage.auth0.com/#/account/webtasks).
 
-That is it! You should be up and running in under 15 minutes with an easy way to execute and test your Rules against a webtask sandbox environment.
+That is it! You should be up and running in under 15 minutes with an easy way to execute and test your Auth0 Custom DB Scripts against a webtask sandbox environment.
 
 ## Special Warning
 
-It is possible that if one Rule fails due to malformed Script content, it could bring down the Webtask Container for a short period of time, affecting any other webtasks deployed in the same container. For this reason, usage of this library against a PRODUCTION webtask environment is strongly discouraged. This is meant to be a library for testing against DEV / TEST / STG envs. only!!!
+It is possible that if one Custom DB Script fails due to malformed (script) content, it could bring down the Webtask Container for a short period of time, affecting any other webtasks deployed in the same container. For this reason, usage of this library against a PRODUCTION webtask environment is strongly discouraged. This is meant to be a library for testing against DEV / TEST / STG envs. only!!!
 
 ## What is Auth0?
 
