@@ -2,7 +2,7 @@
 
 The *auth0-custom-db-testharness* library provides an easy way to deploy, execute, and test the output of Auth0 Custom DB Scripts using a real webtask sandbox environment. It is very simple to use, and requires under 15 minutes to get started testing your Auth0 Custom DB scripts! 
 
-For see here for further documentation on [Auth0 Custom Databases](https://auth0.com/docs/connections/database/mysql)
+See here for further documentation on [Auth0 Custom Databases](https://auth0.com/docs/connections/database/mysql).
 
 Sometimes you just want to execute your Custom DB Scripts against the same sandbox environment it will be deployed to at Runtime in Auth0, and test everything works as expected. You may also wish to write your Custom DB Scripts using a test driven development approach, and gain real feedback as you code - this is where this npm module can help. It actually executes your Custom DB script, by first wrapping it internally, and passing the wrapped function a  `user` object and `callback` function declare in your tests. Then the library spins up a webtask, executes your Custom DB Script passing the results to the provided callback, and finally tears the environment down again.
 
