@@ -302,7 +302,9 @@ That is it! You should be up and running in under 15 minutes with an easy way to
 
 ## Special Warning
 
-It is possible that if one Custom DB Script fails due to malformed (script) content, it could bring down the Webtask Container for a short period of time, affecting any other webtasks deployed in the same container. For this reason, usage of this library against a PRODUCTION webtask environment is strongly discouraged. This is meant to be a library for testing against DEV / TEST / STG envs. only!!!
+It is possible that if one Custom DB Script fails due to malformed (script) content, it could bring down the Webtask Container for a short period of time, affecting any other webtasks deployed in the same container. For this reason, usage of this library against a PRODUCTION webtask environment is strongly discouraged. 
+
+Please note this is not a limitation of this library, but rather do with the behaviour of webtasks themselves - this is identical behaviour to writing a malformed Custom DB Script in the Auth0 Dashboard and executing it. Please see here for more information on [webtasks](https://webtask.io/), the underlying technology that both Auth0 Rules and Auth0 Custom DB Scripts are based upon.
 
 ## What is Auth0?
 
