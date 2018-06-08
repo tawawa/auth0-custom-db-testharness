@@ -55,9 +55,15 @@ var wrapDelete = function (script) {
 
 module.exports = function (params) {
 
+  function normalize(cb) { 
+    return function (error, result, out, stats) { 
+      cb(error, result && result.user, out, stats); 
+    }
+  }
+  
   var execute = function (script, configuration, user, callback) {
     configuration = configuration || {};
-    var args = [user, {}, callback];
+    var args = [user, {}, normalize(callback)];
     runInSandbox(script, args, configuration, params);
   };
 
